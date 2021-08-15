@@ -1,5 +1,5 @@
 {
-  "name": "app-test",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,15 +7,21 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "ant-design-vue": "^1.7.7",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "vue": "^2.6.14"
+    "element-ui": "^2.15.5",
+    "express": "^4.17.1",
+    "loadsh": "^0.0.4",
+    "lodash": "^4.17.21",
+    "scss": "^0.2.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "node-sass": "^4.12.0",
+    "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },
