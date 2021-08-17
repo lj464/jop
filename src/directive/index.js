@@ -1,5 +1,6 @@
+// 点击外面消失指令
 export default {
-    inserted(el, binding, ) {
+    inserted(el, binding ) {
         document.addEventListener('click', function (e) {
             if (e.target === el || el.contains(e.target)) {
                 return
