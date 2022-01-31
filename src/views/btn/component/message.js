@@ -10,7 +10,6 @@ let getInstanceVue =()=>{
 const Message = {
     success(message){
         !instance && getInstanceVue()
-        console.log(instance);
         instance.$children[0].add(message)
         
     }

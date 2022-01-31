@@ -7,40 +7,64 @@ VueRouter.prototype.push = function push(location) {
 }
 
 Vue.use(VueRouter)
-const Cart = () => import('../views/cart')
-const routes = [{
-    path: "/",
-    component: () => import('../views/tree/index.vue')
-  },
-  {
-    path: "/btn",
-    component: () => import('../views/btn')
-  },
-  {
-    path: "/table",
-    component: () => import('../views/Table')
-  },
-  {
-    path: "/footer",
-    component: (resolve) => require(["../views/footer"], resolve),
-    children: [{
-      path: '/home',
-      component: Cart
-    }, {
-      path: '/cate',
-      component: Cart
-    }, {
-      path: '/shoping',
-      component: Cart
-    }, {
-      path: '/my',
-      component: Cart
-    }, ]
-  }
-]
+const tree = () => import('../views/tree/index.vue')
+const Cart = () => import('../views/cart/index.vue')
+export const asyncRoute = [{
+  path: "/",
+  redirect: "/tree",
+  component: () => import('../views/index.vue'),
+  children: [{
+      path: "tree",
+      component: tree,
+      meta: {
+        title: '树形组件'
+      }
+    },
+    {
+      path: "table",
+      component: () => import('../views/Table'),
+      meta: {
+        title: '表格组件',
+        roles: ['zs', 'admin']
+      }
+    },
+    {
+      path: "leave",
+      component: () => import('../views/leave'),
+      meta: {
+        title: '函数组件',
+        roles: ['zs', 'admin']
+      }
+    },
+    {
+      path: "footer",
+      component: (resolve) => require(["../views/footer"], resolve),
+      meta: {
+        title: "测试",
+      },
+      children: [{
+        path: 'home',
+        component: Cart,
+        meta: {
+          title: "首页",
+        },
+      }, {
+        path: 'cate',
+        component: Cart,
+        meta: {
+          title: "购物车",
+        },
+      }]
+    },
+  ]
+}]
+export const route = [{
+  path: "/login",
+  component: () => import("../views/login/index.vue"),
+}, ...asyncRoute]
 
 const router = new VueRouter({
-  routes
+  routes: route
 })
 
 export default router
