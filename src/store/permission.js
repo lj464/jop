@@ -1,4 +1,5 @@
 import { asyncRoute, route } from "@/router";
+// 传入角色名称和路由对象判断能否加入
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
     return roles.some(role => route.meta.roles.includes(role));
@@ -6,7 +7,7 @@ function hasPermission(roles, route) {
     return true;
   }
 }
-
+// 过滤函数
 export function filterAsyncRoutes(routes, roles) {
   const res = [];
 
@@ -31,7 +32,7 @@ const state = {
 const mutations = {
   SET_ROUTES: (state, routes) => {
       // addRoutes是用户可以访问的权限页面
-    state.addRoutes = routes;
+    state.addRoutes=routes;
     // routes是完整的路由表
     state.routes = route.concat(routes);
   }

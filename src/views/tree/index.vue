@@ -1,5 +1,6 @@
 <template>
-  <lj-tree :data="data" @ChangeData='ChangeData' />
+  <!-- 树形组件   -->
+  <lj-tree :data="data" @ChangeData="ChangeData" />
 </template>
 
 <script>
@@ -25,13 +26,12 @@ export default {
       ],
     };
   },
-  methods:{
-    ChangeData(data){
-      this.data = data
-    }
-  }
+  methods: {
+    ChangeData(data) {
+      this.data = data;
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

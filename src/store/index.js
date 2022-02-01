@@ -1,22 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {
-    getStorage,
-    setStorage
-} from '@/utils/storage.js'
-// import permission from './permission.js'
+import {getStorage,setStorage} from '@/utils/storage.js'
+import permission from './permission.js'
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         token: getStorage('token') || ''
     },
     actions: {
-        login({
-            commit
-        }, data) {
+        login({commit}, data) {
             return new Promise((resolve, reject) => {
                 if (data.password == 123) {
-                    commit('settoken', '123')
+                    commit('settoken', data.name)
                     resolve('登录成功')
                 } else {
                     reject('密码错了')
@@ -30,11 +25,11 @@ const store = new Vuex.Store({
             state.token = token
         }
     },
-    // modules: {
-    //     permission
-    // },
-    // getters: {
-    //     permission_routes: state => state.permission.routes,
-    //   }
+    modules: {
+        permission
+    },
+    getters: {
+        permission_routes: state => state.permission.addRoutes,
+      }
 })
 export default store

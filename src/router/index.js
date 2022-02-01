@@ -7,17 +7,19 @@ VueRouter.prototype.push = function push(location) {
 }
 
 Vue.use(VueRouter)
-const tree = () => import('../views/tree/index.vue')
-const Cart = () => import('../views/cart/index.vue')
+// 导出异步组件
 export const asyncRoute = [{
   path: "/",
-  redirect: "/tree",
+  name: 'main',
+  redirect: 'tree',
   component: () => import('../views/index.vue'),
   children: [{
       path: "tree",
-      component: tree,
+      component: () => import('../views/tree/index.vue'),
+      name: 'tree',
       meta: {
-        title: '树形组件'
+        title: '树形组件',
+        roles: ['ls'] //可以看到页面的角色
       }
     },
     {
@@ -25,43 +27,44 @@ export const asyncRoute = [{
       component: () => import('../views/Table'),
       meta: {
         title: '表格组件',
-        roles: ['zs', 'admin']
+        roles: ['zs']
       }
     },
     {
-      path: "leave",
-      component: () => import('../views/leave'),
+      path: "msg",
+      component: () => import('../views/message'),
       meta: {
-        title: '函数组件',
-        roles: ['zs', 'admin']
+        title: '消息提示组件',
+        roles: ['zs']
       }
     },
-    {
-      path: "footer",
-      component: (resolve) => require(["../views/footer"], resolve),
-      meta: {
-        title: "测试",
-      },
-      children: [{
-        path: 'home',
-        component: Cart,
-        meta: {
-          title: "首页",
-        },
-      }, {
-        path: 'cate',
-        component: Cart,
-        meta: {
-          title: "购物车",
-        },
-      }]
-    },
+    // {
+    //   path: "footer",
+    //   component: (resolve) => require(["../views/footer"], resolve),
+    //   meta: {
+    //     title: "测试",
+    //   },
+    //   children: [{
+    //     path: 'home',
+    //     component: Cart,
+    //     meta: {
+    //       title: "首页",
+    //     },
+    //   }, {
+    //     path: 'cate',
+    //     component: Cart,
+    //     meta: {
+    //       title: "购物车",
+    //     },
+    //   }]
+    // },
   ]
-}]
+}, ]
+// 设置同步组件
 export const route = [{
   path: "/login",
   component: () => import("../views/login/index.vue"),
-}, ...asyncRoute]
+}]
 
 const router = new VueRouter({
   routes: route
