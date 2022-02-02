@@ -2,7 +2,9 @@
   <div>
     <el-container>
       <sideBar />
-      <router-view> </router-view>
+      <div class="context">
+        <router-view> </router-view>
+      </div>
     </el-container>
   </div>
 </template>
@@ -16,4 +18,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.context {
+  padding-left: 20px;
+  padding-top: 20px;
+  width: 100%;
+}
+</style>

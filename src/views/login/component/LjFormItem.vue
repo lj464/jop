@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="lj-lable">
     <label v-if="lable">{{ lable }}</label>
     <slot></slot>
-    <p v-if="errmsg !== ''">{{ errmsg }}</p>
+    <p v-if="errmsg !== ''" class="lj-error-msg" style="color: red">{{ errmsg }}</p>
   </div>
 </template>
 
@@ -48,4 +48,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.lj-lable {
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+.lj-lable label {
+  font-size: 20px;
+  display: block;
+  width: 150px;
+}
+.lj-error-msg {
+  position: absolute;
+  left: 50%;
+  transform: translate(-22%, 130%);
+}
+</style>

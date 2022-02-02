@@ -1,7 +1,7 @@
 <template>
   <el-menu>
     <sider-item
-      v-for="(item, index) in addRoutes[0].children"
+      v-for="(item, index) in addRoutes"
       :key="index"
       :item="item"
       :route="true"

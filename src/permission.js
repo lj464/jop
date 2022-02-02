@@ -11,12 +11,12 @@ router.beforeEach(async (to, from, next) => {
     // token就是角色名称，传入vueX中开始计算权限
     if (!store.getters.permission_routes.length) {
       console.log('添加路由');
-      let routes = await store.dispatch('permission/generateRoutes', hasLogin)
-      routes.forEach((route) => {
-        router.addRoute(route)
-      })
       // console.log(router.getRoute(), 'RouteConfig')
-      next({ ...to, replace: true })
+      addRoute(hasLogin)
+      next({
+        ...to,
+        replace: true
+      })
     } else {
       next()
     }
@@ -29,3 +29,9 @@ router.beforeEach(async (to, from, next) => {
     }
   }
 })
+export const addRoute  = async (hasLogin)=> {
+  let routes = await store.dispatch('permission/generateRoutes', [hasLogin])
+  routes.forEach((route) => {
+    router.addRoute('main', route)
+  })
+}

@@ -1,16 +1,14 @@
 <template>
   <div>
-    <div>
+    <div class="loginbox">
       <LjFormModel :rules="rules" ref="form" :model="form" class="contet">
-        <LjFormItem lable="用户名" prop="name" class="contet-item">
-          <LJinput v-model="form.name" />
-        </LjFormItem>
-        <LjFormItem lable="密码" prop="password">
-          <LJinput type="password" v-model="form.password" />
-        </LjFormItem>
-        <LjFormItem>
-          <button @click="login">登录</button>
-        </LjFormItem>
+        <Lj-form-item lable="用户名" prop="name" class="contet-item">
+          <lj-input v-model="form.name" />
+        </Lj-form-item>
+        <Lj-form-item lable="密码" prop="password" class="contet-item">
+          <lj-input type="password" v-model="form.password" />
+        </Lj-form-item>
+        <el-button @click="login" type="primary" style="margin-top: 39px">登录</el-button>
       </LjFormModel>
     </div>
   </div>
@@ -19,12 +17,12 @@
 <script>
 import LjFormModel from "./component/LjFormModel.vue";
 import LjFormItem from "./component/LjFormItem.vue";
-import LJinput from "./component/LJinput.vue";
+import LjInput from "./component/LJinput.vue";
 export default {
   components: {
-    LJinput,
     LjFormItem,
     LjFormModel,
+    LjInput,
   },
   data() {
     return {
@@ -69,6 +67,11 @@ export default {
   text-align: center;
 }
 .contet > div {
-  margin-top: 20px;
+  margin-top: 30px;
+}
+.loginbox {
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 100px;
 }
 </style>

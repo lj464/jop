@@ -1,6 +1,8 @@
 <template>
   <!-- 树形组件   -->
-  <lj-tree :data="data" @ChangeData="ChangeData" />
+  <div style="width: 1200px">
+    <lj-tree :data="data" @ChangeData="ChangeData" />
+  </div>
 </template>
 
 <script>

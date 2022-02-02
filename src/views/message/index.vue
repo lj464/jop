@@ -1,6 +1,6 @@
 <template>
   <!-- 消息组件模拟element-ui 实现调用一个方法就能出现一个消息提示 -->
-  <div class="context">
+  <div>
     <el-button @click="showSuccess" type="success">成功按钮</el-button>
     <el-button @click="showErr" type="danger">失败按钮</el-button>
     <el-button @click="showDefault" type="primary">默认按钮</el-button>
@@ -33,9 +33,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.context {
-  padding-left: 20px;
-  padding-top: 20px;
-}
-</style>
+<style scoped></style>

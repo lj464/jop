@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <LJTable :data="data" :columns="columns" :Schecked.sync="checked" :height='100' />
+  <div class="">
+    <LJTable :data="data" :columns="columns" :Schecked.sync="checked" :height="100" />
   </div>
 </template>
 
@@ -55,12 +55,11 @@ export default {
           sex: "男",
         },
       ],
-    // 选中行
-      checked:[]
+      // 选中行
+      checked: [],
     };
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

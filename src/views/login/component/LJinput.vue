@@ -1,5 +1,14 @@
 <template>
-  <input type="text" :value="value" @input="change" v-bind="$attrs" @blur="validate" />
+  <div>
+    <input
+      style="height: 25px; flex: 1"
+      :value="value"
+      @input="change"
+      v-bind="$attrs"
+      @blur="validate"
+      class="lj-input"
+    />
+  </div>
 </template>
 
 <script>
@@ -17,4 +26,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.lj-input {
+  padding-left: 10px;
+}
+</style>

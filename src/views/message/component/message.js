@@ -22,7 +22,6 @@ const Message = {
             ...this.config,
             ...message,
         }
-        console.log('data',data);
         // instance.$children[0]是组件实例可以调用message.vue中的add方法
         instance.$children[0].add(data)
     },
