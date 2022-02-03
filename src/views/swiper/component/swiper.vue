@@ -70,7 +70,6 @@ export default {
   },
   watch: {
     value: function () {
-      console.log("触发了", this.value);
       this.runSwiper();
     },
   },

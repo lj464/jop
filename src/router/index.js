@@ -48,26 +48,20 @@ export const asyncRoute = [{
       roles: ['ls']
     }
   },
-  // {
-  //   path: "footer",
-  //   component: (resolve) => require(["../views/footer"], resolve),
-  //   meta: {
-  //     title: "测试",
-  //   },
-  //   children: [{
-  //     path: 'home',
-  //     component: Cart,
-  //     meta: {
-  //       title: "首页",
-  //     },
-  //   }, {
-  //     path: 'cate',
-  //     component: Cart,
-  //     meta: {
-  //       title: "购物车",
-  //     },
-  //   }]
-  // },
+  {
+    path: "cascader",
+    component: () => import('../views/cascader'),
+    meta: {
+      title: '级联选择器',
+      roles: ['zs']
+    }
+  },
+  // 404页面不能放到静态路由中
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () => import('@/status/not-found/index.vue')
+  }
 ]
 // 设置同步组件
 export const route = [{
@@ -79,7 +73,7 @@ export const route = [{
   {
     path: "/login",
     component: () => import("../views/login/index.vue"),
-  }
+  },
 ]
 
 const router = new VueRouter({

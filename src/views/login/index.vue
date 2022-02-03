@@ -44,14 +44,14 @@ export default {
             .dispatch("login", this.form)
             .then(() => {
               this.$router.push("/tree");
-              this.$LjMessage({
-                title: "登录成功",
+              this.$message.success({
+                message: "登录成功",
                 duration: 1000,
               });
             })
             .catch((err) => {
-              this.$LjMessage({
-                title: "登录失败",
+              this.$message({
+                message: "登录失败",
                 duration: 1000,
               });
             });
