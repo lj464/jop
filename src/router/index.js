@@ -56,6 +56,14 @@ export const asyncRoute = [{
       roles: ['zs']
     }
   },
+  {
+    path: "datepicker",
+    component: () => import('../views/datepicker'),
+    meta: {
+      title: '日历组件',
+      roles: ['zs']
+    }
+  },
   // 404页面不能放到静态路由中
   {
     path: '/:pathMatch(.*)*',

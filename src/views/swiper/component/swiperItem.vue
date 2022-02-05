@@ -26,7 +26,7 @@ export default {
 <style scoped>
 .v-leave-active,
 .v-enter-active {
-  transition: all 1.5s;
+  transition: all 0.5s;
 }
 .v-enter {
   transform: translateX(100%);

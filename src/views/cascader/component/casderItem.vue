@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     sonOption: function () {
-      return this.currentSelect?.children;
+      return this.value[this.leve]?.children;
     },
   },
 };
