@@ -64,6 +64,14 @@ export const asyncRoute = [{
       roles: ['zs']
     }
   },
+  {
+    path: "upload",
+    component: () => import('../views/upload'),
+    meta: {
+      title: '上传组件',
+      roles: ['zs']
+    }
+  },
   // 404页面不能放到静态路由中
   {
     path: '/:pathMatch(.*)*',

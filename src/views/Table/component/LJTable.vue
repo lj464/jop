@@ -1,16 +1,11 @@
 <template>
   <div class="table-wrapper" ref="tableWrapper">
-    <div :style="{ height: height + 'px' }" ref="scroll" class="scroll">
+    <div :style="{ 'max-height': maxHeight + 'px' }" ref="scroll" class="scroll">
       <table ref="table">
         <thead>
           <tr>
             <th>
-              <input
-                type="checkbox"
-                @input="changeAll"
-                ref="head"
-                :checked="checkeds"
-              />
+              <input type="checkbox" @input="changeAll" ref="head" :checked="checkeds" />
             </th>
             <th v-for="column in columns" :key="column.key">
               {{ column.title }}
@@ -49,8 +44,10 @@ export default {
     Schecked: {
       Type: Array,
     },
-    height: {
+    maxHeight: {
+      // 出现滚动条的高度
       type: Number,
+      default: 100,
     },
   },
   data() {
@@ -116,7 +113,7 @@ export default {
 };
 </script>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 * {
   margin: 0px;
   padding: 0px;
@@ -148,7 +145,7 @@ export default {
   }
   table {
     border: 1px solid #ccc;
-    border-top: none;;
+    border-top: none;
     border-spacing: 0;
     border-collapse: collapse;
     width: 100%;
