@@ -1,6 +1,6 @@
 <template>
   <div class="table-wrapper" ref="tableWrapper">
-    <div :style="{ 'max-height': maxHeight + 'px' }" ref="scroll" class="scroll">
+    <div class="scroll" :style="{ 'max-height': scrollHeight + 'px' }">
       <table ref="table">
         <thead>
           <tr>
@@ -37,14 +37,29 @@ export default {
   props: {
     data: {
       Type: Array,
+      default() {
+        return [
+          {
+            id: 1, // key索引 value值
+            name: "zs",
+            age: "14",
+            sex: "男",
+          },
+        ];
+      },
     },
     columns: {
       Type: Array,
+      default() {
+        return [
+          { title: "Name", key: "name" }, //title表格标题 key 数据索引
+        ];
+      },
     },
     Schecked: {
       Type: Array,
     },
-    maxHeight: {
+    scrollHeight: {
       // 出现滚动条的高度
       type: Number,
       default: 100,
@@ -119,13 +134,22 @@ export default {
   padding: 0px;
 }
 .scroll {
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 .table-wrapper {
   width: 80%;
   margin: 0 auto;
   position: relative;
+  table {
+    border-collapse: collapse;
+  }
+
+  table,
+  th,
+  td {
+    border-bottom: 1px solid #ccc;
+  }
   .fiex-header {
     position: absolute;
     top: 0px;
@@ -134,7 +158,8 @@ export default {
       float: left;
       width: 100%;
       display: flex;
-      height: 20px;
+      height: 35px;
+      line-height: 35px;
       border-bottom: 1px solid #ccc;
       text-align: center;
       th {
@@ -153,13 +178,29 @@ export default {
       float: left;
       width: 100%;
       display: flex;
-      height: 20px;
-      border-bottom: 1px solid #ccc;
+      height: 35px;
+      line-height: 35px;
+      // border-bottom: 1px solid #ccc;
       text-align: center;
       td {
         flex: 1;
       }
     }
   }
+}
+/*滚动条样式*/
+.scroll::-webkit-scrollbar {
+  width: 4px;
+  /*height: 4px;*/
+}
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+.scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
 }
 </style>

@@ -1,14 +1,20 @@
 <template>
   <div class="">
-    <LJTable :data="data" :columns="columns" :Schecked.sync="checked" :height="100" />
+    <export-table
+      :data="data"
+      :columns="columns"
+      :Schecked.sync="checked"
+      :scrollHeight="scrollHeight"
+      @import="importTable"
+    />
   </div>
 </template>
 
 <script>
-import LJTable from "./component/LJTable.vue";
+import ExportTable from "./component/exportTable.vue";
 export default {
   components: {
-    LJTable,
+    ExportTable,
   },
   data() {
     return {
@@ -54,10 +60,42 @@ export default {
           age: "14",
           sex: "男",
         },
+        {
+          id: 7,
+          name: "w5",
+          age: "14",
+          sex: "男",
+        },
+        {
+          id: 8,
+          name: "w5",
+          age: "14",
+          sex: "男",
+        },
+        {
+          id: 9,
+          name: "w5",
+          age: "14",
+          sex: "男",
+        },
+        {
+          id: 10,
+          name: "w5",
+          age: "14",
+          sex: "男",
+        },
       ],
       // 选中行
       checked: [],
+      scrollHeight: 300, // 滚动条出现的高度
     };
+  },
+  methods: {
+    importTable(data) {
+      console.log("data", data); //获取导入数据
+      this.data = [...this.data, ...data];
+      this.$message.success("导入成功，此次导入" + data.length + "条数据");
+    },
   },
 };
 </script>

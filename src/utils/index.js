@@ -16,9 +16,6 @@ let sub = function () {
             })
         }
         fire(...arg) {
-            // this.$point.forEach(v=>{
-            //     v.call(this,...arg)
-            // })
             let point = this.$point
             for (let i = 0; i <= point.length; i++) {
                 let item = point[i]
