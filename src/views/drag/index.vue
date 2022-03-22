@@ -1,6 +1,12 @@
 <template>
-  <div class="parent">
-    <drag v-bind="dragData"></drag>
+  <div>
+    <h3 style="margin-bottom: 20px">
+      给document注册拖拽事件利用冒泡，可以100%检测到拖拽结束
+    </h3>
+    <div class="parent">
+      可以移动的区域
+      <drag v-bind="dragData"></drag>
+    </div>
   </div>
 </template>
 
@@ -29,8 +35,8 @@ export default {
 <style scoped>
 .parent {
   position: relative;
-  width: 900px;
-  height: 800px;
+  width: 350px;
+  height: 450px;
   background-color: skyblue;
 }
 </style>

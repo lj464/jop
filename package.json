@@ -17,6 +17,7 @@
     "less": "^4.1.1",
     "loadsh": "^0.0.4",
     "lodash": "^4.17.21",
+    "multer": "^1.4.4",
     "sass-loader": "^10.0.0",
     "script-loader": "^0.7.2",
     "scss": "^0.2.4",
@@ -26,9 +27,12 @@
     "xlsx": "^0.16.8"
   },
   "devDependencies": {
+    "@koa/multer": "^3.0.0",
+    "@koa/router": "^10.1.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "koa-cors": "^0.0.16",
     "sass": "^1.26.5",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.5.0"

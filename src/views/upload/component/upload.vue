@@ -1,8 +1,8 @@
 <template>
-  <div class="zh-upload">
+  <div class="upload">
     <uploadDragger v-if="drag" :accept="accept" @file="uploadFiles"></uploadDragger>
     <template v-else>
-      <div @click="handleClick" class="zh-upload-btn">
+      <div @click="handleClick" class="upload-btn">
         <slot></slot>
       </div>
       <input
@@ -20,7 +20,7 @@
       <slot name="tip"></slot>
     </div>
     <ul>
-      <li v-for="file in files" :key="file.uid">
+      <li v-for="file in files" :key="file.uid" class="file-li">
         <div class="list-item">
           <img :src="file.url" alt="" />
           {{ file.name }}
@@ -35,7 +35,7 @@ import ajax from "./ajax";
 
 import uploadDragger from "./upload-dragger.vue";
 export default {
-  name: "zh-upload",
+  name: "upload",
   components: {
     uploadDragger,
   },
@@ -46,7 +46,7 @@ export default {
     },
     action: {
       type: String,
-      required: true,
+      default: "",
     },
     fileList: {
       type: Array,
@@ -207,12 +207,15 @@ export default {
 };
 </script>
 <style lang="scss">
-.zh-upload {
-  .zh-upload-btn {
+.upload {
+  .upload-btn {
     display: inline-block;
   }
   .input {
     display: none;
+  }
+  .file-li {
+    list-style: none;
   }
 }
 </style>

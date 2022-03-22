@@ -1,30 +1,35 @@
-// let express = require('express')
-// let app = express()
-// app.use((req,res,next)=>{
-//     res.header('Access-Control-Allow-Origin','*')
-//     if(req.method === 'OPTIONS'){
-//         return res.send()
-//     }
-//     next()
-// })
-// app.get('/getTreeList',(req,res)=>{
-//      res.json({
-//          code:0,
-        //  parent:[
-        //      {name:"文件夹1" ,pid:0,id:1},
-        //      {name:"文件夹2" ,pid:0,id:2},
-        //      {name:"文件夹3" ,pid:0,id:3},
-        //      {name:"文件夹1-1" ,pid:1,id:4},
-        //      {name:"文件夹2-1" ,pid:2,id:5}
-        //  ],
-        //  child:[
-        //     {name:"文件一" ,pid:1,id:10001},
-        //     {name:"文件二" ,pid:1,id:10002},
-        //     {name:"文件三" ,pid:2,id:10003},
-        //     {name:"文件四" ,pid:2,id:10004},
-        //     {name:"文件五" ,pid:4,id:10005},
-        //     {name:"文件六" ,pid:5,id:10006},
-        //  ]
-//      })
-// })
-// app.listen(3000)
+const Koa = require('koa');
+const Router = require('@koa/router');
+const multer = require('@koa/multer');
+
+var cors = require('koa-cors');
+const app = new Koa();
+app.use(cors());
+const router = new Router();
+const upload = multer({
+    dest: 'uploads/'
+}); // note you can pass `multer` options here
+
+// add a route for uploading multiple files
+router.post(
+    '/upload',
+    upload.fields([{
+        name: 'avatar',
+        maxCount: 5
+    }]),
+    ctx => {
+        let r = ctx.request.files.avatar.map(item => ({
+                url: item.path,
+                name: item.originalname
+        }))
+        ctx.body = r;
+    }
+);
+
+
+// add the router to our app
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+// start the server
+app.listen(3000);

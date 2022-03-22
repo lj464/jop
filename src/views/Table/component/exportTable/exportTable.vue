@@ -1,23 +1,25 @@
 <template>
   <div>
-    <LJTable v-bind="$attrs" />
+    <LJTable v-bind="$attrs" v-on="$listeners" />
     <div style="margin-top: 20px">
       <el-button @click="getTableAllData" type="primary">导出当前表格数据</el-button>
       <el-button @click="exportTemplate" type="primary">下载模板</el-button>
-      <!-- <el-button @click="ImportData" type="primary"> 导入数据 </el-button> -->
-      <ImportData :onSuccess="ImportData" />
+      <!-- <el-button @click="importButton" type="primary"> 导入数据 </el-button> -->
+      <importButton :onSuccess="importButton" />
     </div>
   </div>
 </template>
 
 <script>
-import LJTable from "./LJTable.vue";
-import ImportData from "./component/importData.vue";
+// import LJTable from "../LJTable/LJTable.vue";
+import LJTable from "../LJTable/LJTable.vue";
+// import importButton from "./component/importButton.vue";
+import importButton from "./component/importButton.vue";
 export default {
   // 导入导出逻辑写在这里
   components: {
     LJTable,
-    ImportData,
+    importButton,
   },
   created() {},
   methods: {
@@ -57,7 +59,7 @@ export default {
       let data = [];
       this.exportData(data);
     },
-    ImportData(data) {
+    importButton(data) {
       console.log("data", data);
       let titles = this.$attrs.columns.map((v) => v.title);
       let header = data.header;

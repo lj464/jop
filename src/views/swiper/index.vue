@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h3 style="margin-bottom: 20px">利用Vue提供的transition组件轻松实现轮播图效果</h3>
     <swiper v-model="currentSele">
       <swiper-item name="box1">
         <div class="swiper-content" style="background-color: red">内1</div>

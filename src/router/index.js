@@ -72,7 +72,15 @@ export const asyncRoute = [{
       roles: ['zs']
     }
   },
-  // 404页面不能放到静态路由中
+  {
+    path: "scroll",
+    component: () => import('../views/infiniteScroll/index.vue'),
+    meta: {
+      title: '滚动刷新指令',
+      roles: ['zs']
+    }
+  }, 
+  // 404页面不能放到静态路由中../views/upload   
   {
     path: '/:pathMatch(.*)*',
     name: 'notFound',

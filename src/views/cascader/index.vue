@@ -1,6 +1,7 @@
 <template>
   <!-- 级联选择器的封装 -->
   <div>
+    <h3 style="margin-bottom: 20px">级联选择器，主要运用的循环组件的技术</h3>
     <casder :option="data" v-model="value"></casder>
   </div>
 </template>

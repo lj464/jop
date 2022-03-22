@@ -1,6 +1,7 @@
 <template>
   <!-- 消息组件模拟element-ui 实现调用一个方法就能出现一个消息提示 -->
   <div>
+    <h3 style="margin-bottom: 20px">模拟element-ui的$message功能</h3>
     <el-button @click="showSuccess" type="success">成功按钮</el-button>
     <el-button @click="showErr" type="danger">失败按钮</el-button>
     <el-button @click="showDefault" type="primary">默认按钮</el-button>

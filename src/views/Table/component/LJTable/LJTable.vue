@@ -85,6 +85,7 @@ export default {
     },
     changeAll(e) {
       if (e.target.checked) {
+        console.log("11111111");
         this.$emit("update:Schecked", [...this.data]);
       } else {
         this.$emit("update:Schecked", []);
@@ -154,6 +155,7 @@ export default {
     position: absolute;
     top: 0px;
     width: 100%;
+    border: 1px solid #ccc;
     tr {
       float: left;
       width: 100%;
