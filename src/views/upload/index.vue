@@ -1,8 +1,6 @@
 <template>
   <div>
-    <h3 style="margin-bottom: 20px">
-      模仿element-ui实现的上传组件，可以检测到上传的进度
-    </h3>
+    <h3 style="margin-bottom: 20px">模仿element-ui实现的上传组件</h3>
     <div class="box">
       <upload
         v-bind="config1"
