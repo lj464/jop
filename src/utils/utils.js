@@ -52,6 +52,7 @@
     return newObj
   
   }
+  // 寻找滚动元素
   function findscroller(element){
     element.onscroll=function () {
       console.log(element)
